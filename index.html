@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Password Generator</title>
+  <link rel="stylesheet" href="Test-03-contents\Test-Homework-03\reset.css">
+  <!-- CSS for the Bootstrap 4.5.2 -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <!-- JS, Popper.js, and jQuery for Bootstrap-->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+    crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="Test-03-contents\Test-Homework-03\style.css" />
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <header>
+        <h1>Password Generator</h1>
+      </header>
+    </div>
+    <div class="row mt-3 ml-auto">
+      <div class="col-7">
+        <div class="card">
+          <div class="card-header">
+            <h2>Generate a Password</h2>
+          </div>
+          <!-- WHEN prompted for the length of the password
+           THEN I choose a length of at least 8 characters and no more than 128 characters
+            WHEN prompted for character types to include in the password
+           THEN I choose lowercase, uppercase, numeric, and/or special characters -->
+          <div class="card-body">
+            <div class="row"-12>
+                <textarea class="form-control" readonly id="password" placeholder="A Password of Length 8" aria-label="Generated Password"></textarea>
+            </div>
+            <div class="row-12">
+                <button id="generate" class="btn border m-1" data-toggle="modal" data-target="#dialogueBox" >Generate Password</button>
+            </div>
+          </div>
+          <div class="card-footer">
+            <h3>Options</h3>
+            <dic class="row d-inline">
+              <span class="mr-2 d-inline">
+                <label for="length-input">Length:&nbsp;</label>
+                <input id="length-input" maxlength="4" value="8" size="4"
+                  type="number" onchange="updatePassRequirements(this);" /> (Max 40)</span>
+              </span>
+              <span class="row m-auto">
+                <span class="mr-2 d-inline"><input checked type="checkbox" id="include-lowercase" onchange="updatePassRequirements(this);">
+                  <label
+                    for="include-lowercase">&nbsp;Lowercase?</label>
+                  </span>
+                <span class="mr-2 d-inline"><input type="checkbox" id="include-uppercase" onchange="updatePassRequirements(this);">
+                  <label
+                    for="include-uppercase">&nbsp;Uppercase?</label>
+                  </span>
+                <span class="mr-2 d-inline"><input type="checkbox" id="include-numeric" onchange="updatePassRequirements(this);">
+                  <label
+                    for="include-numeric">&nbsp;Numeric?</label>
+                  </span>
+                <span class="mr-2 d-inline"><input type="checkbox" id="include-special" onchange="updatePassRequirements(this);">
+                  <label for="include-special">Special
+                    chars?</label>
+                  </span>
+              </span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="modal" tabindex="-1" role="dialog" id="dialogueBox"> 
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+          </div>
+          <div class="modal-body">
+            <p>Password copied to clipboard.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="Test-03-contents\Test-Homework-03\script.js"></script>
+</body>
+
+</html>
